@@ -1,0 +1,140 @@
+body {
+    background-color: #252525;
+    font-family: "Roboto", sans-serif;
+}
+
+.form {
+    border: 0.25rem solid #f1f1f1;
+    padding: 1rem;
+    width: 20rem;
+    margin: auto;
+}
+
+input[type="text"],
+input[type="password"] {
+    width: 100%;
+    padding: 0.5rem;
+    margin: 0.25rem 0;
+    border: 1px solid #ccc;
+    box-sizing: border-box;
+}
+
+input[type="submit"] {
+    background-color: #4caf50;
+    color: white;
+    padding: 0.5rem;
+    margin: 0.25rem 0;
+    border: none;
+    cursor: pointer;
+    width: 100%;
+}
+
+input[type="submit"]:hover,
+.logged-in-btn:hover {
+    background-color: #45a049;
+}
+
+.logged-in-btn {
+    background-color: #4caf50;
+    color: white;
+    flex: 50%;
+    padding: 0.5rem;
+    margin: 0.25rem 0;
+    border: none;
+    cursor: pointer;
+}
+
+.player_row {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(2, 1fr);
+    font-size: x-large;
+    background-color: #444444;
+    color: white;
+    flex: 50%;
+    padding: 0.5rem;
+    margin: 0.25rem 0;
+    border: none;
+    cursor: pointer;
+    vertical-align: middle;
+    border-radius: 10px;
+}
+
+.player_btn {
+    background-color: #ffd000;
+    border: none;
+    color: rgb(88, 88, 88);
+    padding: 0.5rem 1rem;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+    border-radius: 10px;
+}
+
+.last_action_span {
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+}
+
+.stat_span {
+    text-align: center;
+}
+
+.undo_btn {
+    background-color: #e2e2e2;
+    border: none;
+    color: rgb(105, 105, 105);
+    padding: 0.5rem 1rem;
+    text-align: center;
+    vertical-align: middle;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+    border-radius: 10px;
+}
+
+.last_action_container {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    background-color: #5a5a5a;
+    color: white;
+    flex: 50%;
+    padding: 0.5rem;
+    margin: 0.25rem 0;
+    border: none;
+    cursor: pointer;
+    vertical-align: middle;
+    border-radius: 10px;
+}
+
+.button-container {
+    display: flex;
+    justify-content: space-between;
+}
+
+.add_player_btn {
+    display: flex;
+    background-color: #5a5a5a;
+    color: #ccc;
+    width: 100%;
+    height: 100%;
+    border: none;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    padding: 0.5rem 1rem;
+    border-radius: 10px;
+}
+
+
+.player_name {
+    max-width: 100px;
+    max-height: 42px;
+    word-wrap: break-word;
+}
