@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <link
+      href="https://fonts.googleapis.com/css?family=Roboto"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" type="text/css" href="stylesheet.css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <style></style>
+  </head>
+  <body>
+    <script type="module">
+      import { fetchPlayers } from "./js/database.js";
+      import { createElement } from "./js/players.js";
+      const { players, wins, plusFives } = await fetchPlayers();
+      console.log({ players, wins, plusFives });
+
+      const container = document.getElementById("list");
+      const options = {
+        timeZone: "Europe/Berlin",
+        day: "numeric",
+        month: "long",
+        year: "numeric",
+        hour: "numeric",
+        minute: "numeric",
+      };
+
+      const createPlayerRow = (player, container) => {
+        const time_event = new Date(player.created_at);
+        const formattedDate = time_event.toLocaleDateString("de-DE", options);
+        const list_item = createElement("div", { class: "history_container" });
+        list_item.innerHTML = `<span>${player.player_name}</span>
+                                <span class="stat_span"> ${formattedDate}</span>`;
+        container.appendChild(list_item);
+      };
+
+      container.appendChild(
+        createElement("h2", { class: "1", innerHTML: "Sieger" })
+      );
+      wins.reverse().forEach((player) => createPlayerRow(player, container));
+      container.appendChild(
+        createElement("h2", { class: "1", innerHTML: "+5" })
+      );
+      plusFives
+        .reverse()
+        .forEach((player) => createPlayerRow(player, container));
+    </script>
+    <div id="list"></div>
+  </body>
+</html>

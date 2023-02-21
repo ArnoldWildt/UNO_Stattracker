@@ -113,6 +113,25 @@ input[type="submit"]:hover,
     border-radius: 10px;
 }
 
+.history_container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    background-color: #5a5a5a;
+    color: white;
+    flex: 50%;
+    padding: 0.5rem;
+    margin: 0.25rem 0;
+    border: none;
+    cursor: pointer;
+    vertical-align: middle;
+    border-radius: 10px;
+}
+
+#list {
+    color: #f2f2f2;
+    /* white greyish color */
+}
+
 .button-container {
     display: flex;
     justify-content: space-between;
