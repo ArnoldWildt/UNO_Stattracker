@@ -10,9 +10,10 @@ const { data, error } = await supabase.auth.getSession();
 const loginForm = document.getElementById("login-form");
 const container = document.getElementById("container");
 
-if (data.session) {
+if (data.session && loginForm) {
   loginForm.style.display = "none";
   container.style.display = "flex";
+  addHtmlPlayers();
 }
 console.log(data.session);
 
@@ -29,12 +30,12 @@ export async function fetchPlayers() {
   // Get win data from the database.
   const { data: wins, error: winsError } = await supabase
     .from("wins")
-    .select("player_name");
+    .select("player_name, created_at");
 
   // Get plusFives data from the database.
   const { data: plusFives, error: plusFivesError } = await supabase
     .from("plus_fives")
-    .select("player_name");
+    .select("player_name, created_at");
 
   return { players, wins, plusFives };
 }
@@ -195,13 +196,14 @@ async function addPlayer(name) {
 }
 
 // Add a submit event listener to the form
-loginForm.addEventListener("submit", (event) => {
-  event.preventDefault(); // Prevent the form from being submitted
-  login(); // Call the login function
-});
+if (loginForm) {
+  loginForm.addEventListener("submit", (event) => {
+    event.preventDefault(); // Prevent the form from being submitted
+    login(); // Call the login function
+  });
+}
 
 window.addWin = addWin;
 window.addFive = addFive;
 window.addPlayer = addPlayer;
 window.addHtmlPlayers = addHtmlPlayers;
-addHtmlPlayers();
