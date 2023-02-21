@@ -25,7 +25,7 @@ function removeElement(selector) {
  * @param  {object} attributes object containing attributes and properties for the element
  * @return {HTMLElement}      newly created HTML element
  */
-function createElement(elementType, attributes) {
+export function createElement(elementType, attributes) {
   const element = document.createElement(elementType);
   for (let attr in attributes) {
     if (attributes.hasOwnProperty(attr)) {
